@@ -1,0 +1,522 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="end">{{ sc.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form>
+          <ion-list>
+            <ion-item>
+              <ion-row
+                style="
+                  display: block;
+                  flex: 1 1 0%;
+                  flex-direction: inherit;
+                  align-items: inherit;
+                  align-self: stretch;
+                  text-overflow: ellipsis;
+                  overflow: inherit;
+                  box-sizing: border-box;
+                "
+              >
+                <ion-col size-xs="6">
+                  <ion-select
+                    style="max-width: 100%"
+                    name="month"
+                    id="month"
+                    placeholder="Select month"
+                  >
+                    <ion-select-option value="January"
+                      >January</ion-select-option
+                    >
+                    <ion-select-option value="February"
+                      >February</ion-select-option
+                    >
+                    <ion-select-option value="March">March</ion-select-option>
+                    <ion-select-option value="April">April</ion-select-option>
+                    <ion-select-option value="May">May</ion-select-option>
+                    <ion-select-option value="June">June</ion-select-option>
+                    <ion-select-option value="July">July</ion-select-option>
+                    <ion-select-option value="August">August</ion-select-option>
+                    <ion-select-option value="September"
+                      >September</ion-select-option
+                    >
+                    <ion-select-option value="October"
+                      >October</ion-select-option
+                    >
+                    <ion-select-option value="November"
+                      >November</ion-select-option
+                    >
+                    <ion-select-option value="December"
+                      >December</ion-select-option
+                    >
+                  </ion-select>
+                </ion-col>
+                <ion-col size-xs="6">
+                  <ion-select
+                    style="max-width: 100%"
+                    name="year"
+                    id="year"
+                    placeholder="Select year"
+                  >
+                    <ion-select-option value="2022">2022</ion-select-option>
+                    <ion-select-option value="2023">2023</ion-select-option>
+                    <ion-select-option value="2024">2024</ion-select-option>
+                    <ion-select-option value="2025">2025</ion-select-option>
+                    <ion-select-option value="2026">2026</ion-select-option>
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #1. Proportion of pregnant women register who recieved ANC as
+                per scheduled due date
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of pregnant women who recieved ANC services (as per
+                    schedule) in a month</ion-label
+                  >
+                  <p></p>
+                  <ion-input
+                    type="number"
+                    name="1a"
+                    id="1a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total no. of registered pregnant women whose ANC is due
+                    that month</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="1b"
+                    id="1b"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #2. Proportion of new-borns who recieved HBNC services
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of newborns who recieved visits (as per schedule) as
+                    per HBNC schedule</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="2a"
+                    id="2a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total no. of new-borns due for visit that month</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="2b"
+                    id="2b"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #3. Proportion of cases referred for TB screening
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of individuals screened for TB</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="3a"
+                    id="3a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Target individuals per month (3% of the total
+                    population)</ion-label
+                  >
+                  <ion-input
+                    disabled
+                    type="number"
+                    name="3b"
+                    id="3b"
+                    placeholder="0"
+                    value="{{ (3/100)*sc.population |number: '1.0-0' }}"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black"
+                >#4. Number of footfalls in the month</ion-card-header
+              >
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of OPD cases including new and old cases</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="4a"
+                    id="4a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #5. Proportion of individuals 30 years and above whose CBAC form
+                was filled
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of CBAC form filled</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="5a"
+                    id="5a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total population of 30 years and above of age
+                  </ion-label>
+                  <ion-input
+                    disabled
+                    type="number"
+                    name="5b"
+                    id="5b"
+                    placeholder="0"
+                    value="{{ sc.thirtyAbove }}"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #6. Proportion of individuals 30 years and above screened for
+                Hypertension
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of individuals screened for Hypertension</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="6a"
+                    id="6a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total population of 30 years and above of age
+                  </ion-label>
+                  <ion-input
+                    disabled
+                    type="number"
+                    name="6b"
+                    id="6b"
+                    placeholder="0"
+                    value="{{ sc.thirtyAbove }}"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #7. Proportion of individuals 30 years and above screened for
+                Diabetes
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of individuals screened for Diabetes</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="7a"
+                    id="7a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total population of 30 years and above of age
+                  </ion-label>
+                  <ion-input
+                  disabled
+                    type="number"
+                    name="7b"
+                    id="7b"
+                    placeholder="0"
+                    value="{{ sc.thirtyAbove }}"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #8. Teleconsultation Services
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Teleconsultation services provided to the patients by
+                    CHO</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="8a"
+                    id="8a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #9. Wellness session organized at HWCs
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of Wellness sessions organized at HWC</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="9a"
+                    id="9a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #10. Wellness activities held as per annual health calendar
+                during the month
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of wellness activities held as per annual health
+                    calendar during the month</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="10a"
+                    id="10a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total no. of wellness activities to be held in a month as
+                    per annual health calendar</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="10b"
+                    id="10b"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #11. VHSND held against plan
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of VHSND held</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="11a"
+                    id="11a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total no. of VHSNC planned in the HWC catchment area (1
+                    VHSND/village/month)</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="11b"
+                    id="11b"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #12. Village meetings (VHSNC, JAS, MAS)
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of VHSNC/JAS meetings held as per monthly
+                    plan</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="12a"
+                    id="12a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total no. of VHSNC planned in the HWC catchment area (1
+                    meeting/VHSNC or JAS/month)</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="12b"
+                    id="12b"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card *ngIf="sc.isAyush == true" style="margin: 0">
+              <ion-card-header style="font-weight: 600; color: black">
+                #13. AYUSH
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >No. of VHSNC/JAS meetings held as per monthly
+                    plan</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="13a"
+                    id="13a"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label
+                    position="floating"
+                    text-wrap
+                    style="text-align: justify"
+                    >Total no. of VHSNC planned in the HWC catchment area (1
+                    meeting/VHSNC or JAS/month)</ion-label
+                  >
+                  <ion-input
+                    type="number"
+                    name="13b"
+                    id="13b"
+                    placeholder="0"
+                  ></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-button color="primary" (click)="save()"
+              >Save & Submit</ion-button
+            ></ion-list
+          >
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
